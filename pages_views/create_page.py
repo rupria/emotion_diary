@@ -54,3 +54,22 @@ def render_create_page(change_page):
                 st.session_state.current_year = input_date.year
                 st.session_state.current_month = input_date.month
                 change_page("list")
+
+                import streamlit as st
+
+from logger_config import get_logger
+
+
+logger = get_logger(__name__)
+
+
+def render_create_page():
+    logger.info("일기 작성 페이지 진입")
+
+    content = st.text_area("일기 내용")
+
+    if st.button("저장", key="create_diary"):
+        logger.info(
+            "일기 저장 버튼 클릭 | 글자 수=%d",
+            len(content)
+        )

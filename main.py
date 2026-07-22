@@ -93,3 +93,18 @@ elif st.session_state.page == "create":
     render_create_page(change_page)
 elif st.session_state.page == "edit":
     render_edit_page(change_page)
+
+    import streamlit as st
+
+from logger_config import get_logger
+
+
+logger = get_logger(__name__)
+
+logger.info("Streamlit 애플리케이션 실행")
+
+st.title("감정 일기")
+
+if st.button("클릭 테스트"):
+    logger.info("클릭 테스트 버튼이 눌렸습니다.")
+    st.success("클릭 이벤트가 기록되었습니다.")
